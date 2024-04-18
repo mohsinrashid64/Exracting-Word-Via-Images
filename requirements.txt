@@ -8,4 +8,5 @@ requests
 fastapi
 uvicorn
 config
+python-dotenv
 ipykernel

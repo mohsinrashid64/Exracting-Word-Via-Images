@@ -1,17 +1,19 @@
 from fastapi import HTTPException
-from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
+import os
 import config
 from fastapi import FastAPI
 from utils import encode_image, extract_file_type
 import requests
-
+from dotenv import load_dotenv
+load_dotenv()
+import json
 
 app = FastAPI()
 
 @app.get("/")
 def read_root():
     return {'response': "API RUNNING"}
+
 
 
 @app.get("/extract_text_from_image/")
@@ -21,7 +23,7 @@ def extract_text_from_image(file_path: str):
 
     headers = {
     "Content-Type": "application/json",
-    "Authorization": f"Bearer {config.OPENAI_API_KEY}"
+    "Authorization": f"Bearer {os.environ.get('OPENAI_API_KEY')}"
     }
     try:
         payload = {
@@ -38,7 +40,16 @@ def extract_text_from_image(file_path: str):
             'max_tokens':1000,
         }
         response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload)
-        # print(f"data:image/"+ extract_file_type(file_path) + f";base64,{base64_image}")
+
+        #########################################################################
+        # This is just for viewing the Data in file in JSON format              #
+        # This saves JSON in output.json file                                   #
+        json_response = response.json()['choices'][0]['message']['content']     #
+        data = json.loads(json_response)                                        #
+        with open('output.json', 'w') as f:                                     #                                                 
+            json.dump(data, f, indent=4)                                        #
+        #########################################################################
+
         return response.json()
     
     except Exception as e:

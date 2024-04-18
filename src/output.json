@@ -1,0 +1,26 @@
+{
+    "last_balance_sheet_date": "01/03/1776",
+    "cash_on_hand": "N/A",
+    "bank_name": "Stupid National Bank",
+    "bank_balance": "$799,000",
+    "list_of_products": [
+        {
+            "product_name": "Widget A",
+            "product_cost": "$10",
+            "quantity": "N/A",
+            "delivery_charges": "$5"
+        },
+        {
+            "product_name": "Widget B",
+            "product_cost": "$20",
+            "quantity": "50",
+            "delivery_charges": "$8"
+        },
+        {
+            "product_name": "Widget C",
+            "product_cost": "$15",
+            "quantity": "75",
+            "delivery_charges": "$6"
+        }
+    ]
+}
