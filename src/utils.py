@@ -2,13 +2,12 @@ import os
 import base64
 from fastapi import HTTPException
 
-def encode_image(file_path):
-  try:
-    with open(file_path, "rb") as image_file:
-      return base64.b64encode(image_file.read()).decode('utf-8')
-  
-  except FileNotFoundError:
-      raise HTTPException(status_code=404, detail="The file path provided does not exist.")
+def encode_image(image_content):
+    try:
+        encoded_image = base64.b64encode(image_content)
+        return encoded_image.decode('utf-8')
+    except Exception as e:
+        raise HTTPException(status_code=500, detail="Error encoding image.")
 
 
 def extract_file_type(file_path):

@@ -9,4 +9,5 @@ fastapi
 uvicorn
 config
 python-dotenv
+python-multipart
 ipykernel
