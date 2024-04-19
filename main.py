@@ -3,8 +3,8 @@ from src import config
 from fastapi import FastAPI, UploadFile, File
 from src.utils import encode_image, extract_file_type
 import requests
-from dotenv import load_dotenv
 from fastapi import HTTPException
+from dotenv import load_dotenv
 load_dotenv()
 import json
 
