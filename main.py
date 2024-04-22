@@ -24,6 +24,8 @@ async def extract_text_from_image(extraction_type:str, file: UploadFile = File(.
     attribute_name = f"{extraction_type}"
     value = getattr(config, attribute_name, None)
 
+    print(value)
+
     headers = {
     "Content-Type": "application/json",
     "Authorization": f"Bearer {os.environ.get('OPENAI_API_KEY')}"
