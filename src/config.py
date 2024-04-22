@@ -1,4 +1,4 @@
-PROMPT =  [
+product_list =  [
     {
         "role": "system",
         "content": "You are an experienced mobile developer, a web scraper, and an expert in image processing and generative AI. You will be provided with an image, which could be a screenshot of a document or PDF, or it could contain handwritten text. Your task is to extract all of the relevant data from the image and return it in a specified format."

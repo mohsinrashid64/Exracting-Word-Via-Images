@@ -3,8 +3,8 @@ from src import config
 from fastapi import FastAPI, UploadFile, File
 from src.utils import encode_image, extract_file_type
 import requests
-from fastapi import HTTPException
 from dotenv import load_dotenv
+from fastapi import HTTPException
 load_dotenv()
 import json
 
@@ -15,14 +15,14 @@ def read_root():
     return {'response': "API RUNNING"}
 
 
-
-
-
-@app.post("/extract_text_from_image/")
-async def extract_text_from_image(file: UploadFile = File(...)):
+@app.post("/extract_text_from_image/{extraction_type}")
+async def extract_text_from_image(extraction_type:str, file: UploadFile = File(...)):
 
     file_content = await file.read() # Read the contents of the uploaded file as bytes
     base64_image = encode_image(file_content) # Encode the file content in base64
+
+    attribute_name = f"{extraction_type}"
+    value = getattr(config, attribute_name, None)
 
     headers = {
     "Content-Type": "application/json",
@@ -31,7 +31,7 @@ async def extract_text_from_image(file: UploadFile = File(...)):
     try:
         payload = {
             'model':"gpt-4-turbo",
-            'messages': config.PROMPT + [{
+            'messages': value + [{
             "role": "user",
             "content": [{
                 "type": "image_url",
