@@ -15,14 +15,14 @@ def read_root():
     return {'response': "API RUNNING"}
 
 
-
-
-
-@app.post("/extract_text_from_image/")
-async def extract_text_from_image(file: UploadFile = File(...)):
+@app.post("/extract_text_from_image")
+async def extract_text_from_image(attribute_name: str ,file: UploadFile = File(...)):
 
     file_content = await file.read() # Read the contents of the uploaded file as bytes
     base64_image = encode_image(file_content) # Encode the file content in base64
+
+    value = getattr(config, attribute_name, None)
+
 
     headers = {
     "Content-Type": "application/json",
@@ -31,7 +31,7 @@ async def extract_text_from_image(file: UploadFile = File(...)):
     try:
         payload = {
             'model':"gpt-4-turbo",
-            'messages': config.PROMPT + [{
+            'messages': value + [{
             "role": "user",
             "content": [{
                 "type": "image_url",
@@ -43,7 +43,7 @@ async def extract_text_from_image(file: UploadFile = File(...)):
             'max_tokens':1000,
         }
         response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload)
-
+        print(response.json()['choices'][0]['message']['content'] )
         #########################################################################
         # This is just for viewing the Data in file in JSON format              #
         # This saves JSON in output.json file                                   #
@@ -53,7 +53,8 @@ async def extract_text_from_image(file: UploadFile = File(...)):
         #     json.dump(data, f, indent=4)                                        #
         #########################################################################
 
+        # print(data)
         return {'response': data}
-    
+
     except Exception as e:
         raise HTTPException(status_code=500, detail="Internal Server Error")
