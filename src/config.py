@@ -37,7 +37,7 @@ product_list =  [
 
 
                                 How:
-                                Finally return the data as a JSON response and only a json response nothing else this is of the utmost importance.
+                                Finally return the data as a JSON response and only a json response nothing else this is of the utmost importance. Do not put anything else in the response just a JSON please. Do not put "```json" this in the response.
 
                                 '''
                     }
@@ -114,7 +114,7 @@ invoice_list =  [
                                 }
                                 }
                                 How: 
-                                Finally, return the data as a JSON response and only JSON and nothing else.
+                                Finally return the data as a JSON response and only a json response nothing else this is of the utmost importance. Do not put "```json" this in the response.
                                 '''
                     }
         ]
