@@ -25,7 +25,7 @@ product_purchase =  [
                                     5. Zipcode
                                     6. Phone Number
                                     7. Email Address
-                                4. Purchase Date
+                                4. Purchase Date (Please Convert the date in the following formate when storing it in the JSON “DD/MM/YYYY”)
                                 5. Reference Number
                                 6. Purchase Description
                                 7. Products List (this could have the following details):
@@ -106,7 +106,7 @@ invoice_list =  [
                                     6. Phone Number
                                     7. Email Address
                                     8. Credit Terms
-                                5. Invoice Date
+                                5. Invoice Date (Please Convert the date in the following formate when storing it in the JSON “DD/MM/YYYY”)
                                 6. Reference Number
                                 7. Income Description
 
