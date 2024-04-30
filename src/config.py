@@ -32,6 +32,7 @@ product_purchase =  [
                                     1. Product Name
                                     2. Amount 
                                     3. Product Quantity
+                                    4. Tax
 
                                 Please note that, all of the aforementioned fields may not have the same wording as given, rather you should extract the relevant data according to meaning and context.
 
@@ -58,7 +59,9 @@ product_purchase =  [
                                         {
                                             'product_name': '<value>,'
                                             'amount': '<value>,'
-                                            'product_quantity': '<value>'
+                                            'product_quantity': '<value>',
+                                            'tax': <value>
+
                                         },
                                         …
                                     ]
