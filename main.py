@@ -31,6 +31,7 @@ async def extract_text_from_image(attribute_name: str ,file: UploadFile = File(.
     try:
         payload = {
             'model':"gpt-4-turbo",
+            "response_format":{ "type": "json_object" },
             'messages': value + [{
             "role": "user",
             "content": [{
