@@ -177,23 +177,29 @@ cash_sale =  [
                                 4. Date (Please Convert the date in the following formate when storing it in the JSON “DD/MM/YYYY”)
                                 5. Reference Number
                                 6. Income Description
+                                7. Products List (this could have the following details):
+                                    1. Product Name
+                                    2. Amount 
+                                    3. Product Quantity
+                                    4. Tax
+
 
                                 Please note that, all of the aforementioned fields may not have the same wording as given, rather you should extract the relevant data according to meaning and context.
 
                                 Finally I want the response to be in a JSON format and just that, nothing else, do not even add ```json or anything else like punctuations or any other thing, this is of the utmost importance when it comes to the response. The JSON response needs to have the following structure:
                                 {
-                                    income_account: <value>,
-                                    payment_mode: <value>,
-                                    customers: [
+                                    "income_account": <value>,
+                                    "payment_mode": <value>,
+                                    "customers": [
                                         {
-                                            name: <value>,
-                                            street_address: <value>,
-                                            city: <value>, 
-                                            state: <value>,
-                                            zipcode: <value>,
-                                            phone_number: <value>,
-                                            email_address: <value>
-                                            credit_terms: <value>
+                                            "name": <value>,
+                                            "street_address": <value>,
+                                            "city": <value>, 
+                                            "state": <value>,
+                                            "zipcode": <value>,
+                                            "phone_number": <value>,
+                                            "email_address": <value>
+                                            "credit_terms": <value>
                                             },
                                             …
                                         ],
@@ -201,6 +207,15 @@ cash_sale =  [
                                     reference_number:  <value>,
                                     income_description: <value>
                                     }
+                                    products_list: [
+                                    {
+                                        "product_name": <value>,
+                                        "amount": <value>,
+                                        "product_quantity": <value>
+                                        "tax": <value>
+                                    },
+                                            …
+                                    ]
 
                                     Replace the “<value>” with the appropriate data you extract from the image. The “...” in the JSON structure denotes that there could be multiple entries.
                                     '''
