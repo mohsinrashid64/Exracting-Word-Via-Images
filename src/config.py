@@ -38,7 +38,7 @@ product_purchase =  [
 
                                 Finally I want the response to be in a JSON format and just that, nothing else, do not even add ```json or anything else like punctuations or any other thing, this is of the utmost importance when it comes to the response. The JSON response needs to have the following structure:
                                 {
-                                    'delivery_cost': '<value>',
+                                    'delivery_cost': '<value>', (Please do not add currency symbol)
                                     'payment_mode': '<value>',
                                     'vendor': [
                                         {
@@ -58,7 +58,7 @@ product_purchase =  [
                                     'products_list': [
                                         {
                                             'product_name': '<value>,'
-                                            'amount': '<value>,'
+                                            'amount': '<value>,' (Please do not add currency symbol)
                                             'product_quantity': '<value>',
                                             'tax': <value>
 
@@ -95,7 +95,7 @@ invoice_list =  [
 
                                 The data that I want you extract from the image are the following:
                                 1. Income Account
-                                2. Amount
+                                2. Amount 
                                 3. Payment Mode
                                 4. Customers (this could have the following details):
                                     1. Name
@@ -121,7 +121,7 @@ invoice_list =  [
                                 Finally I want the response to be in a JSON format and just that, nothing else, do not even add ```json or anything else like punctuations or any other thing, this is of the utmost importance when it comes to the response. The JSON response needs to have the following structure:
                                 {
                                     "income_account": <value>,
-                                    "amount": <value>,
+                                    "amount": <value>, (Please do not add currency symbol)
                                     "payment_mode": <value>,
                                     "customers": [
                                         {
@@ -142,9 +142,9 @@ invoice_list =  [
                                     "products_list": [
                                         {
                                             "product_name": <value>,
-                                            "amount": <value>,
+                                            "amount": <value>, (Please do not add currency symbol)
                                             "product_quantity": <value>
-                                            "tax": <value>
+                                            "tax": <value> 
                                         },
                                         …
                                     ]
@@ -223,7 +223,7 @@ cash_sale =  [
                                     products_list: [
                                     {
                                         "product_name": <value>,
-                                        "amount": <value>,
+                                        "amount": <value>, (Please do not add currency symbol)
                                         "product_quantity": <value>
                                         "tax": <value>
                                     },
@@ -276,7 +276,7 @@ vendor = [
                                     "zipcode": <value>,
                                     "phone_number": <value>,
                                     "email_address": <value>,
-                                    "amount_owed": <value>
+                                    "amount_owed": <value> (Please do not add currency symbol)
                                 }
 
                                 Replace the “<value>” with the appropriate data you extract from the image. The “...” in the JSON structure denotes that there could be multiple entries.
@@ -368,7 +368,7 @@ customer_details = [
                                     [
                                         {
                                             "name": <value>,
-                                            "amount_owed": <value>,
+                                            "amount_owed": <value>, (Please do not add currency symbol)
                                             "credit_terms": <value>
                                         }
                                         ...
