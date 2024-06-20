@@ -33,6 +33,7 @@ product_purchase =  [
                                     2. Amount 
                                     3. Product Quantity
                                     4. Tax
+                                8. Currency Symbol (this could be any currency symbol that exists and what you find)
 
                                 Please note that, all of the aforementioned fields may not have the same wording as given, rather you should extract the relevant data according to meaning and context.
 
@@ -48,7 +49,7 @@ product_purchase =  [
                                             'state': '<value>',
                                             'zipcode': '<value>',
                                             'phone_number': '<value>',
-                                            'email_address': '<value'>
+                                            'email_address': '<value>'
                                         }.
                                 …
                                     ],
@@ -60,11 +61,12 @@ product_purchase =  [
                                             'product_name': '<value>,'
                                             'amount': '<value>,' (Please do not add currency symbol)
                                             'product_quantity': '<value>',
-                                            'tax': <value>
+                                            'tax': '<value>'
 
                                         },
-                                        …
-                                    ]
+                                        …,
+                                    ],
+                                    currency_symbol: '<value>'
                                 }
 
                                 Replace the “<value>” with the appropriate data you extract from the image. The “...” in the JSON structure denotes that there could be multiple entries.
@@ -114,40 +116,42 @@ invoice_list =  [
                                     2. Amount 
                                     3. Product Quantity
                                     4. Tax
+                                9. Currency Symbol (this could be any currency symbol that exists and what you find)
 
 
                                 Please note that, all of the aforementioned fields may not have the same wording as given, rather you should extract the relevant data according to meaning and context.
 
                                 Finally I want the response to be in a JSON format and just that, nothing else, do not even add ```json or anything else like punctuations or any other thing, this is of the utmost importance when it comes to the response. The JSON response needs to have the following structure:
                                 {
-                                    "income_account": <value>,
-                                    "amount": <value>, (Please do not add currency symbol)
-                                    "payment_mode": <value>,
+                                    "income_account": '<value>',
+                                    "amount": '<value>', (Please do not add currency symbol)
+                                    "payment_mode": '<value>',
                                     "customers": [
                                         {
-                                            "name": <value>,
-                                            "street_address": <value>,
-                                            "city": <value>, 
-                                            "state": <value>,
-                                            "zipcode": <value>,
-                                            "phone_number": <value>,
-                                            "email_address": <value>
-                                            "credit_terms": <value>
+                                            "name": '<value>',
+                                            "street_address": '<value>',
+                                            "city": '<value>', 
+                                            "state": '<value>',
+                                            "zipcode": '<value>',
+                                            "phone_number": '<value>',
+                                            "email_address": '<value>',
+                                            "credit_terms": '<value>'
                                         },
                                         …
                                     ],
-                                    "invoice_date":  <value>,
-                                    "reference_number":  <value>,
-                                    "income_description": <value>
+                                    "invoice_date": '<value>',
+                                    "reference_number": '<value>',
+                                    "income_description": '<value>'
                                     "products_list": [
                                         {
-                                            "product_name": <value>,
-                                            "amount": <value>, (Please do not add currency symbol)
-                                            "product_quantity": <value>
-                                            "tax": <value> 
+                                            "product_name": '<value>',
+                                            "amount": '<value>', (Please do not add currency symbol)
+                                            "product_quantity": '<value>'
+                                            "tax": '<value>' 
                                         },
                                         …
-                                    ]
+                                    ],
+                                    currency_symbol: '<value>'
                                 }
                                 Replace the “<value>” with the appropriate data you extract from the image. The “...” in the JSON structure denotes that there could be multiple entries.
                                 '''
@@ -195,6 +199,7 @@ cash_sale =  [
                                     2. Amount 
                                     3. Product Quantity
                                     4. Tax
+                                8. Currency Symbol (this could be any currency symbol that exists and what you find)
 
 
                                 Please note that, all of the aforementioned fields may not have the same wording as given, rather you should extract the relevant data according to meaning and context.
@@ -216,20 +221,21 @@ cash_sale =  [
                                             },
                                             …
                                         ],
-                                    date:  <value>,
-                                    reference_number:  <value>,
-                                    income_description: <value>
+                                        date:  <value>,
+                                        reference_number:  <value>,
+                                        income_description: <value>
+                                    
+                                        products_list: [
+                                            {
+                                                "product_name": <value>,
+                                                "amount": <value>, (Please do not add currency symbol)
+                                                "product_quantity": <value>
+                                                "tax": <value>
+                                            },
+                                                …
+                                        ],
+                                        currency_symbol: '<value>'
                                     }
-                                    products_list: [
-                                    {
-                                        "product_name": <value>,
-                                        "amount": <value>, (Please do not add currency symbol)
-                                        "product_quantity": <value>
-                                        "tax": <value>
-                                    },
-                                            …
-                                    ]
-
                                     Replace the “<value>” with the appropriate data you extract from the image. The “...” in the JSON structure denotes that there could be multiple entries.
                                     '''
             }
@@ -264,19 +270,22 @@ vendor = [
                                 5. Zipcode
                                 6. Phone Number
                                 7. Email Address
+                                8. Currency Symbol (this could be any currency symbol that exists and what you find)
 
                                 Please note that, all of the aforementioned fields may not have the same wording as given, rather you should extract the relevant data according to meaning and context.
 
                                 Finally I want the response to be in a JSON format and just that, nothing else, do not even add ```json or anything else like punctuations or any other thing, this is of the utmost importance when it comes to the response. The JSON response needs to have the following structure:
                                 {
-                                    "name": <value>,
-                                    "street_address": <value>,
-                                    "city": <value>,
-                                    "state": <value>,
-                                    "zipcode": <value>,
-                                    "phone_number": <value>,
-                                    "email_address": <value>,
-                                    "amount_owed": <value> (Please do not add currency symbol)
+                                    "name": '<value>',
+                                    "street_address": '<value>',
+                                    "city": '<value>',
+                                    "state": '<value>',
+                                    "zipcode": '<value>',
+                                    "phone_number": '<value>',
+                                    "email_address": '<value>',
+                                    "amount_owed": '<value>', (Please do not add currency symbol)
+                                    "currency_symbol": '<value>'
+
                                 }
 
                                 Replace the “<value>” with the appropriate data you extract from the image. The “...” in the JSON structure denotes that there could be multiple entries.
@@ -314,19 +323,23 @@ customer = [
                                 6. Phone Number
                                 7. Email Address
                                 8. Credit Terms
+                                9. Currency Symbol (this could be any currency symbol that exists and what you find)
+
 
                                 Please note that, all of the aforementioned fields may not have the same wording as given, rather you should extract the relevant data according to meaning and context.
 
                                 Finally I want the response to be in a JSON format and just that, nothing else, do not even add ```json or anything else like punctuations or any other thing, this is of the utmost importance when it comes to the response. The JSON response needs to have the following structure:
                                 {
-                                    name: <value>,
-                                    street_address: <value>,
-                                    city: <value>,
-                                    state: <value>,
-                                    zipcode: <value>,
-                                    phone_number: <value>,
-                                    email_address: <value>,
-                                    credit_terms: <value>
+                                    'name': '<value>',
+                                    'street_address': '<value>',
+                                    'city': '<value>',
+                                    'state': '<value>',
+                                    'zipcode': '<value>',
+                                    'phone_number': '<value>',
+                                    'email_address': '<value>',
+                                    'credit_terms': '<value>'
+                                    'currency_symbol': '<value>'
+
                                 }
 
                                 Replace the “<value>” with the appropriate data you extract from the image. The “...” in the JSON structure denotes that there could be multiple entries.
@@ -360,6 +373,7 @@ customer_details = [
                                 1. Name
                                 2. Amount Owed
                                 3. Credit Terms (this could be 30, 60 or 90. Note if there as another number besides the ones mentioned before igore it and put N/A in json response)
+                                4. Currency Symbol (this could be any currency symbol that exists and what you find)
 
                                 Please note that, all of the aforementioned fields may not have the same wording as given, rather you should extract the relevant data according to meaning and context.
 
@@ -372,8 +386,8 @@ customer_details = [
                                             "credit_terms": <value>
                                         }
                                         ...
-                                    ]
-
+                                    ],
+                                    'currency_symbol': '<value>'
                                 }
 
                                 Replace the “<value>” with the appropriate data you extract from the image. The “...” in the JSON structure denotes that there could be multiple entries.
