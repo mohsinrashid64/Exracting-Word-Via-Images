@@ -59,7 +59,7 @@ product_purchase =  [
                                     'products_list': [
                                         {
                                             'product_name': '<value>,'
-                                            'amount': '<value>,' (Please do not add currency symbol)
+                                            'amount': '<value>,' (Please do not add currency symbol and also do not multiply with product quantity, keep the amount of an individual product)
                                             'product_quantity': '<value>',
                                             'tax': '<value>'
 
@@ -145,7 +145,7 @@ invoice_list =  [
                                     "products_list": [
                                         {
                                             "product_name": '<value>',
-                                            "amount": '<value>', (Please do not add currency symbol)
+                                            "amount": '<value>', (Please do not add currency symbol and also do not multiply with product quantity, keep the amount of an individual product)
                                             "product_quantity": '<value>'
                                             "tax": '<value>' 
                                         },
@@ -228,7 +228,7 @@ cash_sale =  [
                                         products_list: [
                                             {
                                                 "product_name": <value>,
-                                                "amount": <value>, (Please do not add currency symbol)
+                                                "amount": <value>, (Please do not add currency symbol and also do not multiply with product quantity, keep the amount of an individual product)
                                                 "product_quantity": <value>
                                                 "tax": <value>
                                             },
