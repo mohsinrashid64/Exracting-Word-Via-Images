@@ -1,4 +1,4 @@
-product_purchase =  [
+product_purchase =  [ # tax
     {
         "role": "system",
         "content": "You are an experienced mobile developer, a web scraper, and an expert in image processing and generative AI. You will be provided with an image, which could be a screenshot of a document or PDF, or it could contain handwritten text. Your task is to extract all of the relevant data from the image and return it in a specified format."
@@ -33,43 +33,45 @@ product_purchase =  [
                                     2. Amount 
                                     3. Product Quantity
                                     4. Tax
+                                    5. Tax of product (calculate this for each product by using the amount, product quantity and tax. Do not calculate this if any of the prvious fields is missing, if tax cant be calculated then put N/A here)                                  
                                 8. Currency Symbol (this could be any currency symbol that exists and what you find)
-                                9. Tax Status (this is a boolean, such that it is true if there is tax and false if there is no tax)
+                                9. Total Tax Amount (You are supposed to calculate this from the products list by using the amount, product quantity and tax. If tax is not present in the product list then simple put N/A)
+                                10. Tax Status (this is a boolean, such that it is true if there is tax and false if there is no tax)
 
                                 Please note that, all of the aforementioned fields may not have the same wording as given, rather you should extract the relevant data according to meaning and context.
 
                                 Finally I want the response to be in a JSON format and just that, nothing else, do not even add ```json or anything else like punctuations or any other thing, this is of the utmost importance when it comes to the response. The JSON response needs to have the following structure:
                                 {
-                                    'delivery_cost': '<value>', (Please do not add currency symbol)
-                                    'payment_mode': '<value>',
-                                    'vendor': [
+                                    "delivery_cost": "<value>", (Please do not add currency symbol)
+                                    "payment_mode": "<value>",
+                                    "vendor": [
                                         {
-                                            'name': '<value>',
-                                            'street_address': '<value>',
-                                            'city': '<value>', 
-                                            'state': '<value>',
-                                            'zipcode': '<value>',
-                                            'phone_number': '<value>',
-                                            'email_address': '<value>'
+                                            "name": "<value>",
+                                            "street_address": "<value>",
+                                            "city": "<value>", 
+                                            "state": "<value>",
+                                            "zipcode": "<value>",
+                                            "phone_number": "<value>",
+                                            "email_address": "<value>"
                                         }.
-                                …
+                                    …
                                     ],
-                                    'purchase_date': '<value>',
-                                    'reference_number':  '<value>',
-                                    'purchase_description': '<value>',
-                                    'products_list': [
+                                    "purchase_date": "<value>",
+                                    "reference_number":  "<value>",
+                                    "purchase_description": "<value>",
+                                    "products_list": [
                                         {
-                                            'product_name': '<value>,'
-                                            'amount': '<value>,' (Please do not add currency symbol and also do not multiply with product quantity, keep the amount of an individual product)
-                                            'product_quantity': '<value>',
-                                            'tax': '<value>'
-
+                                            "product_name": "<value>,"
+                                            "amount": "<value>," (Please do not add currency symbol and also do not multiply with product quantity, keep the amount of an individual product)
+                                            "product_quantity": "<value>",
+                                            "tax": "<value>",
+                                            "tax_of_product": "<value>"
                                         },
                                         …,
                                     ],
-                                    'currency_symbol': '<value>',
-                                    'tax_status': '<value>'
-                                    
+                                    "currency_symbol": "<value>",
+                                    "total_tax_amount":  "<value>",                                   
+                                    "tax_status": "<value>"
                                 }
 
                                 Replace the “<value>” with the appropriate data you extract from the image. The “...” in the JSON structure denotes that there could be multiple entries.
@@ -81,7 +83,7 @@ product_purchase =  [
 
 
 
-invoice_list =  [
+invoice_list =  [ # tax
     {
         "role": "system",
         "content": "You are an experienced mobile developer, a web scraper, and an expert in image processing and generative AI. You will be provided with an image, which could be a screenshot of a document or PDF, or it could contain handwritten text. Your task is to extract all of the relevant data from the image and return it in a specified format."
@@ -119,8 +121,10 @@ invoice_list =  [
                                     2. Amount 
                                     3. Product Quantity
                                     4. Tax
+                                    5. Tax of product (calculate this for each product by using the amount, product quantity and tax. Do not calculate this if any of the prvious fields is missing, if tax cant be calculated then put N/A here)                                          
                                 9. Currency Symbol (this could be any currency symbol that exists and what you find)
-                                10. Tax Status (this is a boolean, such that it is true if there is tax and false if there is no tax)
+                                10. Total Tax Amount (You are supposed to calculate this from the products list by using the amount, product quantity and tax. If tax is not present in the product list then simple put N/A)
+                                11. Tax Status (this is a boolean, such that it is true if there is tax and false if there is no tax)
 
 
 
@@ -128,37 +132,40 @@ invoice_list =  [
 
                                 Finally I want the response to be in a JSON format and just that, nothing else, do not even add ```json or anything else like punctuations or any other thing, this is of the utmost importance when it comes to the response. The JSON response needs to have the following structure:
                                 {
-                                    "income_account": '<value>',
-                                    "amount": '<value>', (Please do not add currency symbol)
-                                    "payment_mode": '<value>',
+                                    "income_account": "<value>",
+                                    "amount": "<value>", (Please do not add currency symbol)
+                                    "payment_mode": "<value>",
                                     "customers": [
                                         {
-                                            "name": '<value>',
-                                            "street_address": '<value>',
-                                            "city": '<value>', 
-                                            "state": '<value>',
-                                            "zipcode": '<value>',
-                                            "phone_number": '<value>',
-                                            "email_address": '<value>',
-                                            "credit_terms": '<value>'
+                                            "name": "<value>",
+                                            "street_address": "<value>",
+                                            "city": "<value>", 
+                                            "state": "<value>",
+                                            "zipcode": "<value>",
+                                            "phone_number": "<value>",
+                                            "email_address": "<value>",
+                                            "credit_terms": "<value>"
                                         },
                                         …
                                     ],
-                                    "invoice_date": '<value>',
-                                    "reference_number": '<value>',
-                                    "income_description": '<value>'
+                                    "invoice_date": "<value>",
+                                    "reference_number": "<value>",
+                                    "income_description": "<value>",
                                     "products_list": [
                                         {
-                                            "product_name": '<value>',
-                                            "amount": '<value>', (Please do not add currency symbol and also do not multiply with product quantity, keep the amount of an individual product)
-                                            "product_quantity": '<value>'
-                                            "tax": '<value>' 
+                                            "product_name": "<value>",
+                                            "amount": "<value>", (Please do not add currency symbol and also do not multiply with product quantity, keep the amount of an individual product)
+                                            "product_quantity": "<value>",
+                                            "tax": "<value>",
+                                            "tax_of_product": "<value>"
                                         },
                                         …
                                     ],
-                                    'currency_symbol': '<value>'
-                                    'tax_status': '<value>'
+                                    "currency_symbol": "<value>",
+                                    "total_tax_amount": "<value>",
+                                    "tax_status": "<value>"
                                 }
+
                                 Replace the “<value>” with the appropriate data you extract from the image. The “...” in the JSON structure denotes that there could be multiple entries.
                                 '''
                     }
@@ -168,7 +175,7 @@ invoice_list =  [
 
 
 
-cash_sale =  [
+cash_sale =  [  # tax
     {
         "role": "system",
         "content": "You are an experienced mobile developer, a web scraper, and an expert in image processing and generative AI. You will be provided with an image, which could be a screenshot of a document or PDF, or it could contain handwritten text. Your task is to extract all of the relevant data from the image and return it in a specified format."
@@ -205,8 +212,10 @@ cash_sale =  [
                                     2. Amount 
                                     3. Product Quantity
                                     4. Tax
+                                    5. Tax of product (calculate this for each product by using the amount, product quantity and tax. Do not calculate this if any of the prvious fields is missing, if tax cant be calculated then put N/A here)        
                                 8. Currency Symbol (this could be any currency symbol that exists and what you find)
                                 9. Tax Status (this is a boolean, such that it is true if there is tax and false if there is no tax)
+                                10. Total Tax Amount (You are supposed to calculate this from the products list by using the amount, product quantity and tax. If tax is not present in the product list then simple put N/A)
 
 
 
@@ -214,37 +223,39 @@ cash_sale =  [
 
                                 Finally I want the response to be in a JSON format and just that, nothing else, do not even add ```json or anything else like punctuations or any other thing, this is of the utmost importance when it comes to the response. The JSON response needs to have the following structure:
                                 {
-                                    "income_account": <value>,
-                                    "payment_mode": <value>,
+                                    "income_account": "<value>",
+                                    "payment_mode": "<value>",
                                     "customers": [
                                         {
-                                            "name": <value>,
-                                            "street_address": <value>,
-                                            "city": <value>, 
-                                            "state": <value>,
-                                            "zipcode": <value>,
-                                            "phone_number": <value>,
-                                            "email_address": <value>
-                                            "credit_terms": <value>
-                                            },
-                                            …
-                                        ],
-                                        date:  <value>,
-                                        reference_number:  <value>,
-                                        income_description: <value>
-                                    
-                                        products_list: [
-                                            {
-                                                "product_name": <value>,
-                                                "amount": <value>, (Please do not add currency symbol and also do not multiply with product quantity, keep the amount of an individual product)
-                                                "product_quantity": <value>
-                                                "tax": <value>
-                                            },
-                                                …
-                                        ],
-                                        'currency_symbol': '<value>',
-                                        'tax_status': '<value>'
-                                    }
+                                            "name": "<value>",
+                                            "street_address": "<value>",
+                                            "city": "<value>",
+                                            "state": "<value>",
+                                            "zipcode": "<value>",
+                                            "phone_number": "<value>",
+                                            "email_address": "<value>",
+                                            "credit_terms": "<value>"
+                                        },
+                                        …
+                                    ],
+                                    "date": "<value>",
+                                    "reference_number": "<value>",
+                                    "income_description": "<value>",
+                                    "products_list": [
+                                        {
+                                            "product_name": "<value>",
+                                            "amount": "<value>", (Please do not add currency symbol and also do not multiply with product quantity, keep the amount of an individual product)
+                                            "product_quantity": "<value>",
+                                            "tax": "<value>",
+                                            "tax_of_product": "<value>"
+                                        },
+                                        …
+                                    ],
+                                    "currency_symbol": "<value>",
+                                    "tax_status": "<value>",
+                                    "total_tax_amount": "<value>"
+                                }
+
                                     Replace the “<value>” with the appropriate data you extract from the image. The “...” in the JSON structure denotes that there could be multiple entries.
                                     '''
             }
