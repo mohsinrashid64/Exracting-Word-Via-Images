@@ -34,6 +34,7 @@ product_purchase =  [
                                     3. Product Quantity
                                     4. Tax
                                 8. Currency Symbol (this could be any currency symbol that exists and what you find)
+                                9. Tax Status (this is a boolean, such that it is true if there is tax and false if there is no tax)
 
                                 Please note that, all of the aforementioned fields may not have the same wording as given, rather you should extract the relevant data according to meaning and context.
 
@@ -66,7 +67,9 @@ product_purchase =  [
                                         },
                                         …,
                                     ],
-                                    currency_symbol: '<value>'
+                                    'currency_symbol': '<value>',
+                                    'tax_status': '<value>'
+                                    
                                 }
 
                                 Replace the “<value>” with the appropriate data you extract from the image. The “...” in the JSON structure denotes that there could be multiple entries.
@@ -117,6 +120,8 @@ invoice_list =  [
                                     3. Product Quantity
                                     4. Tax
                                 9. Currency Symbol (this could be any currency symbol that exists and what you find)
+                                10. Tax Status (this is a boolean, such that it is true if there is tax and false if there is no tax)
+
 
 
                                 Please note that, all of the aforementioned fields may not have the same wording as given, rather you should extract the relevant data according to meaning and context.
@@ -151,7 +156,8 @@ invoice_list =  [
                                         },
                                         …
                                     ],
-                                    currency_symbol: '<value>'
+                                    'currency_symbol': '<value>'
+                                    'tax_status': '<value>'
                                 }
                                 Replace the “<value>” with the appropriate data you extract from the image. The “...” in the JSON structure denotes that there could be multiple entries.
                                 '''
@@ -200,6 +206,8 @@ cash_sale =  [
                                     3. Product Quantity
                                     4. Tax
                                 8. Currency Symbol (this could be any currency symbol that exists and what you find)
+                                9. Tax Status (this is a boolean, such that it is true if there is tax and false if there is no tax)
+
 
 
                                 Please note that, all of the aforementioned fields may not have the same wording as given, rather you should extract the relevant data according to meaning and context.
@@ -234,7 +242,8 @@ cash_sale =  [
                                             },
                                                 …
                                         ],
-                                        currency_symbol: '<value>'
+                                        'currency_symbol': '<value>',
+                                        'tax_status': '<value>'
                                     }
                                     Replace the “<value>” with the appropriate data you extract from the image. The “...” in the JSON structure denotes that there could be multiple entries.
                                     '''
@@ -271,6 +280,8 @@ vendor = [
                                 6. Phone Number
                                 7. Email Address
                                 8. Currency Symbol (this could be any currency symbol that exists and what you find)
+                                9. Tax Status (this is a boolean, such that it is true if there is tax and false if there is no tax)
+
 
                                 Please note that, all of the aforementioned fields may not have the same wording as given, rather you should extract the relevant data according to meaning and context.
 
@@ -284,7 +295,8 @@ vendor = [
                                     "phone_number": '<value>',
                                     "email_address": '<value>',
                                     "amount_owed": '<value>', (Please do not add currency symbol)
-                                    "currency_symbol": '<value>'
+                                    "currency_symbol": '<value>',
+                                    "tax_status":'<value>'
 
                                 }
 
@@ -324,6 +336,8 @@ customer = [
                                 7. Email Address
                                 8. Credit Terms
                                 9. Currency Symbol (this could be any currency symbol that exists and what you find)
+                                10. Tax Status (this is a boolean, such that it is true if there is tax and false if there is no tax)
+
 
 
                                 Please note that, all of the aforementioned fields may not have the same wording as given, rather you should extract the relevant data according to meaning and context.
@@ -339,6 +353,7 @@ customer = [
                                     'email_address': '<value>',
                                     'credit_terms': '<value>'
                                     'currency_symbol': '<value>'
+                                    'tax_status':'<value>'
 
                                 }
 
@@ -374,6 +389,8 @@ customer_details = [
                                 2. Amount Owed
                                 3. Credit Terms (this could be 30, 60 or 90. Note if there as another number besides the ones mentioned before igore it and put N/A in json response)
                                 4. Currency Symbol (this could be any currency symbol that exists and what you find)
+                                5. Tax Status (this is a boolean, such that it is true if there is tax and false if there is no tax)
+
 
                                 Please note that, all of the aforementioned fields may not have the same wording as given, rather you should extract the relevant data according to meaning and context.
 
@@ -381,13 +398,15 @@ customer_details = [
                                 {
                                     [
                                         {
-                                            "name": <value>,
-                                            "amount_owed": <value>, (Please do not add currency symbol)
-                                            "credit_terms": <value>
+                                            "name": "<value>",
+                                            "amount_owed": "<value>", (Please do not add currency symbol)
+                                            "credit_terms": "<value>"
                                         }
                                         ...
                                     ],
-                                    'currency_symbol': '<value>'
+                                    "currency_symbol": "<value>"
+                                    "tax_status":"<value>"
+
                                 }
 
                                 Replace the “<value>” with the appropriate data you extract from the image. The “...” in the JSON structure denotes that there could be multiple entries.
