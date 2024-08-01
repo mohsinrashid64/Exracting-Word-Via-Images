@@ -37,6 +37,8 @@ product_purchase =  [ # tax
                                 8. Currency Symbol (this could be any currency symbol that exists and what you find)
                                 9. Total Tax Amount (You are supposed to calculate this from the products list by using the amount, product quantity and tax. If tax is not present in the product list then simple put N/A)
                                 10. Tax Status (this is a boolean, such that it is true if there is tax and false if there is no tax)
+                                11. Type of Tax (this is the type of tax, you have to extract what type of tax is it it could be like sales tax or income tax, please find the right type of tax)
+                                12. Tax Percentage (the tax in percentage, you will probably find will be the same in the entire image, therefore just add the percentage)
 
                                 Please note that, all of the aforementioned fields may not have the same wording as given, rather you should extract the relevant data according to meaning and context.
 
@@ -71,7 +73,9 @@ product_purchase =  [ # tax
                                     ],
                                     "currency_symbol": "<value>",
                                     "total_tax_amount":  "<value>",                                   
-                                    "tax_status": "<value>"
+                                    "tax_status": "<value>",
+                                    "type_of_tax": "<value>",
+                                    "tax_percentage": "<value>"
                                 }
 
                                 Replace the “<value>” with the appropriate data you extract from the image. The “...” in the JSON structure denotes that there could be multiple entries.
@@ -125,7 +129,8 @@ invoice_list =  [ # tax
                                 9. Currency Symbol (this could be any currency symbol that exists and what you find)
                                 10. Total Tax Amount (You are supposed to calculate this from the products list by using the amount, product quantity and tax. If tax is not present in the product list then simple put N/A)
                                 11. Tax Status (this is a boolean, such that it is true if there is tax and false if there is no tax)
-
+                                12. Type of Tax (this is the type of tax, you have to extract what type of tax is it it could be like sales tax or income tax, please find the right type of tax)
+                                13. Tax Percentage (the tax in percentage, you will probably find will be the same in the entire image, therefore just add the percentage)
 
 
                                 Please note that, all of the aforementioned fields may not have the same wording as given, rather you should extract the relevant data according to meaning and context.
@@ -163,7 +168,9 @@ invoice_list =  [ # tax
                                     ],
                                     "currency_symbol": "<value>",
                                     "total_tax_amount": "<value>",
-                                    "tax_status": "<value>"
+                                    "tax_status": "<value>",
+                                    "type_of_tax": "<value>",
+                                    "tax_percentage": "<value>"
                                 }
 
                                 Replace the “<value>” with the appropriate data you extract from the image. The “...” in the JSON structure denotes that there could be multiple entries.
@@ -216,6 +223,8 @@ cash_sale =  [  # tax
                                 8. Currency Symbol (this could be any currency symbol that exists and what you find)
                                 9. Tax Status (this is a boolean, such that it is true if there is tax and false if there is no tax)
                                 10. Total Tax Amount (You are supposed to calculate this from the products list by using the amount, product quantity and tax. If tax is not present in the product list then simple put N/A)
+                                11. Type of Tax (this is the type of tax, you have to extract what type of tax is it it could be like sales tax or income tax, please find the right type of tax)
+                                12. Tax Percentage (the tax in percentage, you will probably find will be the same in the entire image, therefore just add the percentage)
 
 
 
@@ -253,7 +262,9 @@ cash_sale =  [  # tax
                                     ],
                                     "currency_symbol": "<value>",
                                     "tax_status": "<value>",
-                                    "total_tax_amount": "<value>"
+                                    "total_tax_amount": "<value>",
+                                    "type_of_tax": "<value>",
+                                    "tax_percentage": "<value>"
                                 }
 
                                     Replace the “<value>” with the appropriate data you extract from the image. The “...” in the JSON structure denotes that there could be multiple entries.
