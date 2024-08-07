@@ -7,6 +7,8 @@ from dotenv import load_dotenv
 from fastapi import HTTPException
 load_dotenv()
 import json
+import uvicorn
+
 
 app = FastAPI()
 
@@ -58,3 +60,9 @@ async def extract_text_from_image(attribute_name: str ,file: UploadFile = File(.
 
     except Exception as e:
         raise HTTPException(status_code=500, detail="Internal Server Error")
+    
+
+
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
