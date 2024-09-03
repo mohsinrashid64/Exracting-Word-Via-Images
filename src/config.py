@@ -32,13 +32,17 @@ product_purchase =  [ # tax
                                     1. Product Name
                                     2. Amount 
                                     3. Product Quantity
-                                    4. Tax
-                                    5. Tax of product (calculate this for each product by using the amount, product quantity and tax. Do not calculate this if any of the prvious fields is missing, if tax cant be calculated then put N/A here)                                  
+                                    4. Tax 
+                                    5. Tax of product (calculate this for each product by using the amount, product quantity and tax. Do not calculate this if any of the prvious fields is missing, if tax cant be calculated then put N/A here)
+                                    6. Type of Tax (this is the type of tax)                                  
                                 8. Currency Symbol (this could be any currency symbol that exists and what you find)
                                 9. Total Tax Amount (You are supposed to calculate this from the products list by using the amount, product quantity and tax. If tax is not present in the product list then simple put N/A)
                                 10. Tax Status (this is a boolean, such that it is true if there is tax and false if there is no tax)
                                 11. Type of Tax (this is the type of tax, you have to extract what type of tax is it it could be like sales tax or income tax, please find the right type of tax)
-                                12. Tax Percentage (the tax in percentage, you will probably find will be the same in the entire image, therefore just add the percentage)
+                                12. Tax Information (this could have the following details):
+                                    1. Type of tax (please if you find acronyms put those here dont try to find the actual word of those acronyms)
+                                    2. Tax Percentage
+                                13. Tax Percentage (the tax in percentage, you will probably find will be the same in the entire image, therefore just add the percentage)
 
                                 Please note that, all of the aforementioned fields may not have the same wording as given, rather you should extract the relevant data according to meaning and context.
 
@@ -67,14 +71,21 @@ product_purchase =  [ # tax
                                             "amount": "<value>," (Please do not add currency symbol and also do not multiply with product quantity, keep the amount of an individual product)
                                             "product_quantity": "<value>",
                                             "tax": "<value>",
-                                            "tax_of_product": "<value>"
+                                            "tax_of_product": "<value>",
+                                            "type_of_tax:: "<value>"
                                         },
                                         …,
                                     ],
                                     "currency_symbol": "<value>",
                                     "total_tax_amount":  "<value>",                                   
                                     "tax_status": "<value>",
-                                    "type_of_tax": "<value>",
+                                    "tax_info": [
+                                        {
+                                            type_of_tax: "<value>",
+                                            tax_percentage: "<value>",
+                                        },
+                                        …,
+                                    ],
                                     "tax_percentage": "<value>"
                                 }
 
@@ -129,7 +140,9 @@ invoice_list =  [ # tax
                                 9. Currency Symbol (this could be any currency symbol that exists and what you find)
                                 10. Total Tax Amount (You are supposed to calculate this from the products list by using the amount, product quantity and tax. If tax is not present in the product list then simple put N/A)
                                 11. Tax Status (this is a boolean, such that it is true if there is tax and false if there is no tax)
-                                12. Type of Tax (this is the type of tax, you have to extract what type of tax is it it could be like sales tax or income tax, please find the right type of tax)
+                                12. Tax Information (this could have the following details):
+                                    1. Type of tax (please if you find acronyms put those here dont try to find the actual word of those acronyms)
+                                    2. Tax Percentage                            
                                 13. Tax Percentage (the tax in percentage, you will probably find will be the same in the entire image, therefore just add the percentage)
 
 
@@ -169,7 +182,13 @@ invoice_list =  [ # tax
                                     "currency_symbol": "<value>",
                                     "total_tax_amount": "<value>",
                                     "tax_status": "<value>",
-                                    "type_of_tax": "<value>",
+                                    "tax_info": [
+                                        {
+                                            type_of_tax: "<value>",
+                                            tax_percentage: "<value>",
+                                        },
+                                        …,
+                                    ],
                                     "tax_percentage": "<value>"
                                 }
 
@@ -223,7 +242,9 @@ cash_sale =  [  # tax
                                 8. Currency Symbol (this could be any currency symbol that exists and what you find)
                                 9. Tax Status (this is a boolean, such that it is true if there is tax and false if there is no tax)
                                 10. Total Tax Amount (You are supposed to calculate this from the products list by using the amount, product quantity and tax. If tax is not present in the product list then simple put N/A)
-                                11. Type of Tax (this is the type of tax, you have to extract what type of tax is it it could be like sales tax or income tax, please find the right type of tax)
+                                11. Tax Information (this could have the following details):
+                                    1. Type of tax (please if you find acronyms put those here dont try to find the actual word of those acronyms)
+                                    2. Tax Percentage     
                                 12. Tax Percentage (the tax in percentage, you will probably find will be the same in the entire image, therefore just add the percentage)
 
 
@@ -263,7 +284,13 @@ cash_sale =  [  # tax
                                     "currency_symbol": "<value>",
                                     "tax_status": "<value>",
                                     "total_tax_amount": "<value>",
-                                    "type_of_tax": "<value>",
+                                    "tax_info": [
+                                        {
+                                            type_of_tax: "<value>",
+                                            tax_percentage: "<value>",
+                                        },
+                                        …,
+                                    ],
                                     "tax_percentage": "<value>"
                                 }
 
